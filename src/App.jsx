@@ -9,18 +9,18 @@ import {
 import { history } from './_helpers';
 
 // import ReduxProvider from './configureRedux';
-import { NewEntryAlert, PrivateRoute, PublicRoute } from './components';
+import { PrivateRoute, PublicRoute } from './components';
 import {
-  Login, Signup, Homepage,
+  Login, Signup,
 } from './pages';
 import { ShowAlert } from './components';
 
 const App = () => (
   <Router history={history}>
     <ShowAlert />
-    <NewEntryAlert/>
+    {/* <NewEntryAlert/> */}
     <Switch>
-      <PrivateRoute path="/home" component={Homepage} />
+      {/* <PrivateRoute path="/home" component={Homepage} /> */}
       <PublicRoute path="/login" component={Login} />
       <PublicRoute path="/signup" component={Signup} />
       <Redirect from="*" to="/home/dashboard" />
