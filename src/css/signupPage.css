@@ -1,0 +1,15 @@
+.login-form-button {
+    width: 100%;
+  }
+
+.signuppage-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+   width: 450 px;
+  transform: translate(-50%, -50%);
+  border:  0.25px solid;
+  box-shadow: 0.5px 0.5px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}

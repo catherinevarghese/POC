@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.total{
+  text-align:right !important;
+  /* font-size: large ; */
+  font-weight: 700;
+}
+.salesCreditAmount{
+  /* font-size: large ; */
+  font-weight: 700;
+  text-align: left;
+  color: red;
+}
+.totalAmount{
+  color:green;
+  font-weight: 700;
+}
+.salesCashAmount{
+  /* font-size: large ; */
+  font-weight: 700;
+  text-align: left;
+  color: #0f52ba;
+}
+.salesBankAmount{
+  font-weight: 700;
+  text-align: left;
+  color: green;
+}
+
+.vl {
+  border-left: 2px solid green;
+  height: 800px;
+}
+.purchase_total{
+  text-align: left !important;
+  /* font-size: large ; */
+}
+
+.table-striped-rows tr:nth-child(2n) td {
+  background-color: #fbfbfb;
+}
+.table-striped-rows thead {
+  background-color: #f1f1f1;
+}
