@@ -23,6 +23,26 @@ function authentication(state = initialState, action) {
       return {};
     case userConstants.LOGOUT:
       return {};
+      case userConstants.EMAIL_REQUEST:
+        return{
+          data:action.data
+        }
+      case userConstants.EMAIL_SUCCESS:
+        return{
+          data: action.data
+        }
+     case userConstants.EMAIL_FAILURE:
+    return{
+      data: action.error
+    }
+    case userConstants.EDIT_REQUEST:
+      return{
+        data: action.user
+      }
+    case userConstants.EDIT_SUCCESS:
+      return{
+        data:action.user
+      }
     default:
       return state;
   }

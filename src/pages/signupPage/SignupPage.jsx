@@ -107,55 +107,6 @@ const Signup = () => {
             onChange={(e) => handleChange(e)}
           />
         </Form.Item>
-        {/* <Form.Item
-          name="password"
-          rules={[
-            {
-              required: true,
-              min: 8,
-              max: 15,
-              message: MINIMUM_LENGTH_REQUIRED,
-            },
-          ]}
-          hasFeedback
-        >
-          <Input.Password
-            required
-            prefix={<LockOutlined />}
-            placeholder="password"
-            size="default"
-            name={PASSWORD}
-            onChange={(e) => handleChange(e)}
-          />
-        </Form.Item>
-        <Form.Item
-          name="confirm"
-          dependencies={['password']}
-          hasFeedback
-          rules={[
-            {
-              required: true,
-              message: CONFIRM_YOUR_PASSWORD,
-            },
-            ({ getFieldValue }) => ({
-              validator(rule, value) {
-                if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(
-                  NOT_MATCH,
-                );
-              },
-            }),
-          ]}
-        >
-          <Input.Password
-            prefix={<LockOutlined />}
-            placeholder={CONFIRM_PASSWORD}
-            size="default"
-            name="confirmpassword"
-          />
-        </Form.Item> */}
         <Form.Item>
           <Button
             htmlType="submit"
@@ -165,10 +116,10 @@ const Signup = () => {
             {isLoading && isLoading ? SIGNING_UP : SIGNUP}
           </Button>
         </Form.Item>
-        <Card>
+        {/* <Card>
           <b>{ALREADY_REGISTERED}</b>
           <Link to={PATH_CONSTANTS.LOGIN}>{LOGIN_FORM_TEXT.LOGIN}</Link>
-        </Card>
+        </Card> */}
       </Form>
     </Card>
   );

@@ -11,6 +11,7 @@ function registration(state = {}, action) {
       return {
         ...state,
         isLoading: false,
+        register: true,
       };
     case userConstants.REGISTER_FAILURE:
       return {

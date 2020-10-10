@@ -6,3 +6,4 @@ export * from './globalConstants';
 export { default as PATH_CONSTANTS } from './pathConstants';
 // export { default as transactionConstants } from './transaction.constants';
 export { default as notificationConstants } from './notification.constants';
+export {default as verificationConstants } from './verification.constants';

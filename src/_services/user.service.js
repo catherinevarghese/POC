@@ -40,12 +40,36 @@ function register(user) {
     .then((response) => handleResponse(response))
     .catch((error) => handleResponse(error.response));
 }
-
+function emailLogin(user) {
+  return axios
+    .post(`${BASE_URL}/users/email`, user)
+    .then((response) => handleResponse(response))
+    .catch((error) => handleResponse(error.response));
+}
 // Login service
 
 function login(user) {
   return axios
     .post(`${BASE_URL}/users/phone`, user)
+    .then((response) => handleResponse(response))
+    .catch((error) => handleResponse(error.response));
+}
+
+// axios.get(`${BASE_URL}/transaction/${entryType}?supplierId=${supplierId}&page=${page}&size=${GLOBALCONSTANTS.DEFAULT_PAGE_SIZE}&from=${selectedStartDate}&to=${selectedEndDate}`, {
+//   headers: {
+//     Authorization: `Bearer ${getToken()}`,
+//   },
+// })
+
+function editProfile(user) {
+  const user_id = localStorage.getItem('user_id');
+  const auth_token = localStorage.getItem('auth_token')
+  return axios
+    .put(`${BASE_URL}/users/${user_id}`,user, {
+      headers: {
+        Authorization: `Bearer ${user_id},${auth_token}`,
+      },
+    })
     .then((response) => handleResponse(response))
     .catch((error) => handleResponse(error.response));
 }
@@ -70,6 +94,8 @@ const userService = {
   login,
   // logout,
   register,
+  emailLogin,
+  editProfile
   // getAll,
   // getById,
   // update,
