@@ -3,6 +3,7 @@ import { verificationServices, routerService, userService } from '../_services';
 import { alertActions } from '.';
 import { history } from '../_helpers';
 
+var count = 0;
 // login Action
 function otpVerification(data) {
     // localStorage.setItem('phoneNumber',users.phoneNumber);
@@ -28,7 +29,13 @@ function otpVerification(data) {
           }
         },
         (error) => {
-          dispatch(alertActions.error(error.message));
+         count = count + 1;
+          console.log(count)
+          if(count === 4){
+            history.push(PATH_CONSTANTS.LOGIN);
+          } else{
+            dispatch(alertActions.error(error.message));
+          }
         },
       );
     };
@@ -72,19 +79,32 @@ function newEmailVerification(data){
   }
   return (dispatch) => {
     dispatch(request(data));
-    // userService.emailLogin(data).then(
     verificationServices.emailVerification(data).then(
       (data) => {
-        // console.log(data.results.user);
         console.log(data.success);
         dispatch(success(data));
-        // if(!data.results.user.emailVerified){
-        //   dispatch(success(data.results.user));
-        //   // history.push(PATH_CONSTANTS.LOGIN);
-        // } else {
-        //   console.log("new user")
-        //   history.push(PATH_CONSTANTS.LOGIN);
-        // }
+        history.push(PATH_CONSTANTS.LOGIN);
+      },
+      (error) => {
+        dispatch(alertActions.error(error.message));
+      },
+    );
+  };
+}
+
+function resendOtp(data){
+  function request(user) {
+    return { type:verificationConstants.OTP_RESEND_REQUEST, user };
+  }
+  function success(user) {
+    return { type: verificationConstants.OTP_RESEND_SUCCESS, user };
+  }
+  return (dispatch) => {
+    dispatch(request(data));
+    verificationServices.resendOtpServices(data).then(
+      (data) => {
+        console.log(data.success);
+        dispatch(success(data));
       },
       (error) => {
         dispatch(alertActions.error(error.message));
@@ -96,7 +116,8 @@ function newEmailVerification(data){
 const verificationActions ={
     otpVerification,
 emailVerification,
-newEmailVerification
+newEmailVerification,
+resendOtp
 
 }
   export  default verificationActions;

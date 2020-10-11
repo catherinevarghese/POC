@@ -22,7 +22,6 @@ const handleChange = (e) => {
     registration && setVerification({
       ...data,
        [e.target.name]: e.target.value,
-    //   phoneNumber: `${number}`,
       token:`${jwt}`,
     })
     console.log(jwt);
@@ -31,13 +30,13 @@ const handleChange = (e) => {
 const handleSubmit = () => {
   console.log(isVerify);
     console.log("the form is submitted",data);
-//    (!registration) && dispatch(verificationActions.otpVerification(data));
      dispatch(verificationActions.newEmailVerification(data))
     form.resetFields();
     setVerification({
       token:`${authentication.token}`,
     })
 }
+// email verfication page
     return(
         <div>
              <Card
@@ -58,8 +57,7 @@ const handleSubmit = () => {
        <Form.Item>
       <label style={{width:100, color:'blue'}}>Verification Code</label>
       <Input   placeholder="Enter the verification code"
-          name='verificationCode'
-          // value = 'Enter the verification code'
+          name='verificationToken'
           onChange={(e) => handleChange(e)}
       ></Input>
       </Form.Item>
@@ -70,7 +68,6 @@ const handleSubmit = () => {
           htmlType="submit"
           type="primary"
           className="login-form-button"
-          // onClick = {changeVerify}
         >
         Verify
         </Button>

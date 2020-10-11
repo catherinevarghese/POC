@@ -3,7 +3,7 @@ const PATH_CONSTANTS = {
   SIGN_UP: '/signup',
   OTP: '/verification',
   DASHBOARD:'/dashboard',
-      EMAIL:'/email_verification'
+   EMAIL:'/email_verification'
 };
 
 export default PATH_CONSTANTS;

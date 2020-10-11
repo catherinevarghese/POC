@@ -4,7 +4,7 @@ import {
   } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import {verificationActions} from '../../_actions';
-import userActions from '../../_actions/user.actions';
+
 
 const OtpVerification = () => {
 const number = JSON.parse(localStorage.getItem('phoneNumber'));
@@ -12,10 +12,9 @@ const [form] = Form.useForm();
 const [data, setVerification] = useState();
 const dispatch = useDispatch();
 const authentication = useSelector((state) => state.authentication);
-const verification = useSelector((state) => state.otpVerification);
 const registration = useSelector((state) => state.registration);
 const { register} = registration;
-  const { isVerify } = verification;
+  
 
 const handleChange = (e) => {
   !registration &&   setVerification({
@@ -44,6 +43,17 @@ const handleSubmit = () => {
       token:`${authentication.token}`,
     })
 }
+
+// resend the OTP 
+const resendOtp = () => {
+  const data = {
+    phoneNumber: `${number}`,
+    token:`${authentication.token}`,
+  }
+  dispatch(verificationActions.resendOtp(data));
+}
+
+// the code for both email verification and OTP verification form
     return(
         <div>
              <Card
@@ -68,7 +78,6 @@ const handleSubmit = () => {
       <label style={{width:100, color:'blue'}}>Verification Code</label>
       <Input   placeholder="Enter the verification code"
           name='verificationCode'
-          // value = 'Enter the verification code'
           onChange={(e) => handleChange(e)}
       ></Input>
       </Form.Item>
@@ -79,14 +88,15 @@ const handleSubmit = () => {
           htmlType="submit"
           type="primary"
           className="login-form-button"
-          // onClick = {changeVerify}
         >
         Verify
         </Button>
       </Form.Item>
           </Form>
+          <Button onClick={resendOtp}>Resent OTP</Button>
       </Card>
         </div>
     )
-}
+      }
+
 export default OtpVerification;

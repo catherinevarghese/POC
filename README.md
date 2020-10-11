@@ -1,11 +1,11 @@
-# Account Book
-Account Book is an application used to keep a track of your purchases, sales. and expenditure on a daily basis.
+# POC
+
 ## Requirements
 - For development, you will only need [Node.js](https://nodejs.org/en/download/) 
 ## Clone
-- Clone this repo to your local machine using https://github.com/Flycatch/account_book_web
+- Clone this repo to your local machine using https://github.com/catherinevarghese/POC.git
 ```bash
-git clone https://github.com/Flycatch/account_book_web
+git clone https://github.com/catherinevarghese/POC.git
 ```
 ## Installation
 - Use the package manager npm  to install Account book.
@@ -17,5 +17,3 @@ npm start
 ### Build for production
 ```bash
 npm run build
-```
-

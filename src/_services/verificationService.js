@@ -28,8 +28,16 @@ function emailVerification(data){
   .catch((error) => handleResponse(error.response));
 }
 
+function resendOtpServices(data){
+  return axios
+  .put(`${BASE_URL}/users/otp/resend`, data)
+  .then((response) => handleResponse(response))
+  .catch((error) => handleResponse(error.response));
+}
+
  const verificationServices ={
   otpVerification,
-  emailVerification
+  emailVerification,
+  resendOtpServices
 }
 export default verificationServices;

@@ -17,7 +17,7 @@ const Login = () => {
   const number = JSON.parse(localStorage.getItem('phoneNumber'));
  
 
-// form change for phone number
+// form change for phone number for the first login page
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -78,7 +78,7 @@ console.log("the email user", user)
         style={{ width: '25rem' }}
       >
         <Form onFinish={handleSubmit}>
-       { register? <Form.Item><Input name="email" placeholder="Please eneter youe email ID" onChange={(e) => handleEmailChange(e)} /></Form.Item>:LOGINFORMFIELDS} 
+       { register? <Form.Item><Input name="email" placeholder="Please enter your email ID" onChange={(e) => handleEmailChange(e)} /></Form.Item>:LOGINFORMFIELDS} 
           <Form.Item>
             <Button
               type="primary"

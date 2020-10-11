@@ -20,6 +20,14 @@ function otpVerification(state = {}, action){
       return{
         user:action.user
       }
+      case verificationConstants.OTP_RESEND_REQUEST:
+        return{
+          data: action.user
+        }
+      case verificationConstants.OTP_RESEND_SUCCESS:
+        return{
+          data:action.user
+        }
       default:
           return state;
     }

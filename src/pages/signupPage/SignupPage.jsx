@@ -49,6 +49,8 @@ const Signup = () => {
     CONFIRM_YOUR_PASSWORD, NOT_MATCH, USERNAME, EMAIL, PASSWORD,
     CONFIRM_PASSWORD, PHONE_NUMBER,
   } = SIGNUP_FORM_TEXT;
+
+  // the form for sign up page
   return (
     <Card
       type="flex"
